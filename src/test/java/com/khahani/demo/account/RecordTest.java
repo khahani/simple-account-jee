@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RecordTest {
 
+    private Record r;
+
     @Test
     public void add_zero_credit(){
         assertWrongAmount(0);
@@ -22,13 +24,13 @@ class RecordTest {
     }
 
     private void assertCorrectAmount(int amount) {
-        Record r = new Record();
+        r = new Credit();
         r.setAmount(amount);
         assertEquals(amount, r.getAmount());
     }
 
     private void assertWrongAmount(int amount) {
-        Record r = new Record();
+        r = new Credit();
 
         Record.CantEnterZeroAmountException thrown = assertThrows(
                 Record.CantEnterZeroAmountException.class,

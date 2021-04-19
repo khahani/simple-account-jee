@@ -1,11 +1,10 @@
 package com.khahani.demo.account;
 
-public class Record{
+public abstract class Record{
     private int amount;
     private int day;
     private int month;
     private String description;
-    private Status status;
     private long time = System.currentTimeMillis();
 
 
@@ -24,14 +23,6 @@ public class Record{
         return time;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public int getOperator() {
-        return status.getOperator();
-    }
-
     public void resetTime() {
         time = System.currentTimeMillis();
     }
@@ -43,25 +34,7 @@ public class Record{
         }
     }
 
-    enum Status {
-        Debit(-1),
-        Credit(1);
+    public abstract int getOperator();
+    public abstract String getStatus();
 
-        int value;
-
-        Status(int v) {
-            value = v;
-        }
-
-        int getOperator() {
-            return value;
-        }
-
-        String getText() {
-            if (value == 1)
-                return "بستانکار";
-            else
-                return "بدهکار";
-        }
-    }
 }
