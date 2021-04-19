@@ -1,5 +1,6 @@
 package com.khahani.demo.account;
 
+import java.util.Iterator;
 import java.util.concurrent.ConcurrentSkipListSet;
 
 public class Account {
@@ -10,13 +11,29 @@ public class Account {
     }
 
     public void addRecord(Record r) {
-        records.add(r);
+        if (!records.add(r)) {
+            try {
+                Thread.sleep(1);
+                r.resetTime();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            if (!records.add(r))
+                throw new IllegalArgumentException("Duplicate Record");
+        }
     }
 
     public int getBalance() {
-        if (records.size() == 0)
-            return 0;
+        int balance = 0;
 
-        return records.first().getAmount();
+        if (records.size() == 0) {
+            return balance;
+        }
+
+        for (Record r : records) {
+            balance += r.getAmount() * r.getOperator();
+        }
+
+        return balance;
     }
 }

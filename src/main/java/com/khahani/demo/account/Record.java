@@ -1,14 +1,12 @@
 package com.khahani.demo.account;
 
-import java.util.Comparator;
-
 public class Record{
     private int amount;
     private int day;
     private int month;
     private String description;
     private Status status;
-    private long time;
+    private long time = System.currentTimeMillis();
 
 
     public void setAmount(int amount) {
@@ -26,6 +24,25 @@ public class Record{
         return time;
     }
 
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public int getOperator() {
+        return status.getOperator();
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void resetTime() {
+        time = System.currentTimeMillis();
+    }
 
     public static class CantEnterZeroAmountException extends RuntimeException {
         @Override
