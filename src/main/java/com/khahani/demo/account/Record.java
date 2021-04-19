@@ -32,14 +32,6 @@ public class Record{
         return status.getOperator();
     }
 
-    public int getDay() {
-        return day;
-    }
-
-    public int getMonth() {
-        return month;
-    }
-
     public void resetTime() {
         time = System.currentTimeMillis();
     }
