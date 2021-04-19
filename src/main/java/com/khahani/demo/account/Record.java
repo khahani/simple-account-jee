@@ -1,11 +1,14 @@
 package com.khahani.demo.account;
 
-public class Record {
+import java.util.Comparator;
+
+public class Record{
     private int amount;
     private int day;
     private int month;
     private String description;
     private Status status;
+    private long time;
 
 
     public void setAmount(int amount) {
@@ -18,6 +21,11 @@ public class Record {
     public int getAmount() {
         return amount;
     }
+
+    public long getTime() {
+        return time;
+    }
+
 
     public static class CantEnterZeroAmountException extends RuntimeException {
         @Override

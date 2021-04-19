@@ -20,6 +20,6 @@ class AccountTest {
         Record r = new Record();
         r.setAmount(1000);
         account.addRecord(r);
-//        account.getRemain()
+        assertEquals(1000, account.getBalance());
     }
 }
