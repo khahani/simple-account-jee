@@ -8,7 +8,12 @@ public class Credit  extends Record{
     }
 
     @Override
-    public String getStatus() {
+    public String getStatusText() {
         return "بستانکار";
+    }
+
+    @Override
+    public int getStatus() {
+        return 1;
     }
 }

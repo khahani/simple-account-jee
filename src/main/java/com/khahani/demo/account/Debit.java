@@ -7,7 +7,12 @@ public class Debit extends Record{
     }
 
     @Override
-    public String getStatus() {
+    public String getStatusText() {
         return "بدهکار";
+    }
+
+    @Override
+    public int getStatus() {
+        return -1;
     }
 }

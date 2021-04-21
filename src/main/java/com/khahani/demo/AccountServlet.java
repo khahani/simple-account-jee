@@ -1,6 +1,7 @@
 package com.khahani.demo;
 
 import com.khahani.demo.account.Record;
+import com.khahani.demo.persist.RecordStorage;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -26,7 +27,10 @@ public class AccountServlet extends HttpServlet {
             record.setDescription(request.getParameter("description"));
         }
 
+        RecordStorage rs = new RecordStorage();
 
+        if (null != record)
+            rs.add(record);
 
     }
 

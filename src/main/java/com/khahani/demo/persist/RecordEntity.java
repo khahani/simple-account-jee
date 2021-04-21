@@ -26,6 +26,9 @@ public class RecordEntity {
     @Column(name="description")
     private String description;
 
+    @Column(name="time")
+    private long time;
+
     public RecordEntity() {
     }
 
@@ -75,5 +78,13 @@ public class RecordEntity {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public long getTime() {
+        return time;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
     }
 }

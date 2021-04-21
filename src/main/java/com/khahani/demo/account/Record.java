@@ -70,6 +70,8 @@ public abstract class Record{
     }
 
     public abstract int getOperator();
-    public abstract String getStatus();
+    public abstract String getStatusText();
+
+    public abstract int getStatus();
 
 }
