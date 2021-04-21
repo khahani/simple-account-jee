@@ -7,6 +7,17 @@ public abstract class Record{
     private String description;
     private long time = System.currentTimeMillis();
 
+    public static Record getInstanceFactory(String status) {
+        Record record = null;
+        try {
+            record = (Record) Class.forName("com.khahani.demo.account." + status)
+                    .newInstance();
+
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return record;
+    }
 
     public void setAmount(int amount) {
         if (amount <= 0)
